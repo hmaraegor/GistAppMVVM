@@ -21,17 +21,10 @@ class GistListCell: UITableViewCell {
             self.files.text = "files: " + viewModel.files
             self.author.text = "author: " + viewModel.author
             self.date.text = "date: " + viewModel.date
-            //TODO:
             
             avatarImage.layer.cornerRadius = avatarImage.frame.size.height / 5
-            AlamofireNetworkService.fetchData(url: viewModel.avatarUrl) { (data, error) in
-                if data != nil {
-                    self.avatarImage.image = UIImage(data: data!)!
-                    print("getImage: ok")
-                } else if error != nil {
-                    print("getImage: error")
-                    //TODO:
-                }
+            viewModel.setImage() { (image) in
+                self.avatarImage.image = image
             }
         }
     }

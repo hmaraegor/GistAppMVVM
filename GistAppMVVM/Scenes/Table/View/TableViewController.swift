@@ -8,12 +8,8 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-        //TODO: !!!!!
+    
     private var gistViewModel: TableViewViewModelType!
-    //TODO:
-//    private var gistUpdateService = GistUpdateService()
-    private var gistService = GistNetworkService()
-//    private var gistDeleteService = GistDeleteService()
     
     
     override func viewDidLoad() {
@@ -34,44 +30,12 @@ class TableViewController: UITableViewController {
         gistViewModel.getGistsViaAFDecodable {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                print("done")
             }
         }
     }
     
     func fetchGistList() {
         gistViewModel.getGistsViaAlamofire {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                print("done")
-            }
-        }
-    }
-    
-    func fetchGistListViaAlamofire() {
-        AlamofireNetworkService.fetchRequestV1(url: "https://api.github.com/gists")
-    }
-    
-    func fetchGistListViaNetworkService() {
-        gistViewModel.getGistsViaNetworkService {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
-    //TODO:
-    private func fetchGistListDirectlyNetworkService() {
-        gistService.getGists() { (array, error) in
-            if array != nil {
-                self.gistViewModel?.gistArray = array!
-            }
-            else if error != nil {
-                DispatchQueue.main.async {
-                    //TODO:
-                    //ErrorAlertService.showErrorAlert(error: error as! NetworkServiceError, viewController: self)
-                }
-            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -110,16 +74,23 @@ class TableViewController: UITableViewController {
     }
    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //return UITableView.automaticDimension
         return 85
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //TODO:
-        //presentGistController(with: gistArray[indexPath.row])
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        guard let gistViewModel = gistViewModel else { return }
+        gistViewModel.selectRow(atIndexPath: indexPath)
+        
+        presentGistController()
+    }
+    
+    private func presentGistController() {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "DetailViewController", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC")
+        (vc as? DetailViewController)?.viewModel = gistViewModel.viewModelForSelectedRow()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

@@ -8,50 +8,6 @@
 import Foundation
 import Alamofire
 
-class NetworkService {
-    
-    typealias Completion<T: Codable> = (Result<T, NetworkErrorService>) -> ()
-    
-    func get<T: Codable>(url: String, _ completion: @escaping Completion<T>) {
-        performHTTPRequest(url: url, method: "GET", data: nil, params: nil, completion)
-    }
-    
-    // MARK: - Private
-    private func performHTTPRequest<T: Codable>(url: String, method: String, data: Data?, params: [String: Any]?, _ completion: @escaping Completion<T>) {
-        
-        guard let url = URL(string: url) else {
-            completion(.failure(.badURL))
-            return
-        }
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = method
-        urlRequest.httpBody = data
-        
-        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            guard let response = response else {
-                completion(.failure(.noResponse))
-                return }
-            guard let data = data else {
-                completion(.failure(.noData))
-                return }
-            if error != nil {
-                completion(.failure(.networkError))
-                return
-            }
-            guard let httpResponse = response as? HTTPURLResponse,
-                (200...299).contains(httpResponse.statusCode) else {
-                    completion(.failure(.badResponse))
-                    print("Status code: ", (response as? HTTPURLResponse)?.statusCode)
-                    return
-            }
-            
-            // MARK: - Decoding data and return object
-            DecodeService().decodeData(data: data, completionHandler: completion)
-            
-        }.resume()
-    }
-}
-
 class AlamofireNetworkService {
     
     static func fetchData(url: String,
@@ -60,9 +16,11 @@ class AlamofireNetworkService {
         AF.request(url).responseData { (responseData) in
             switch responseData.result {
             case .success(let data):
+                print("responseData success")
                 completionHandler(data, nil)
             case .failure(let error):
                 completionHandler(nil, error)
+                print("responseData error")
             }
             
         }
@@ -71,18 +29,27 @@ class AlamofireNetworkService {
     
     static func fetchAndDecodable(url: String,
                                    completionHandler: @escaping ([Gist]?, Error?) -> () ) {
-             guard let url = URL(string: url) else { return }
+             guard let newUrl = URL(string: url) else {
+                print("fetchAndDecodable url error")
+                return }
         
-        AF.request(url).validate().responseDecodable(of: [Gist].self) { (response) in
-          guard let gists = response.value else { return }
+        AF.request(newUrl).validate().responseDecodable(of: [Gist].self) { (response) in
+            
+            guard let gists = response.value else {
+                print("fetchAndDecodable response.value error")
+                print(response.error)
+                fetchRequest(url: url, completionHandler: completionHandler )
+                return
+            }
+            
             completionHandler(gists, nil)
             print("ok")
         }
 
     }
     
-    static func fetchRequest(url: String,
-                              completionHandler: @escaping ([Gist]?, Error?) -> () ) {
+    static func fetchRequest<T: Decodable>(url: String,
+                              completionHandler: @escaping (T?, Error?) -> () ) {
         guard let url = URL(string: url) else { return }
         
         
@@ -91,7 +58,7 @@ class AlamofireNetworkService {
                 print("wrong data")
                 return
             }
-            DecodeService().decodeData(data: data) { (result: Result<[Gist], NetworkErrorService>) -> () in
+            DecodeService().decodeData(data: data) { (result: Result<T, NetworkErrorService>) -> () in
                 switch result {
                 case .success(let obj):
                     completionHandler(obj, nil)
@@ -104,44 +71,4 @@ class AlamofireNetworkService {
         }
     }
     
-    
-    
-    
-    
-    static func fetchRequestV1(url: String) {
-        guard let url = URL(string: url) else { return }
-        
-        guard false else { return }
-        AF.request(url).validate().responseJSON { (response) in
-            switch response.result {
-            case .success(let value): //success при ответе + validate <- 200-299
-                print("value:", value)
-            case .failure(let error):
-                print("error:", error)
-            }
-        }
-    
-        
-        guard false else { return }
-        AF.request(url).responseJSON { (response) in
-            //TODO:
-            guard let statusCode = response.response?.statusCode else { return }
-            print("StatusCode:", statusCode)
-            if (200...299).contains(statusCode) {
-                let value = response.result
-                let v = response.value
-                
-                /*switch value {
-                case .success(let value2):
-                    print("value2:", value2)
-                case .failure(_): break
-                }*/
-                
-                print("value:", v ?? "nil")
-            } else {
-                let error = response.error
-                print("error:", error ?? "error")
-            }
-        }
-    }
 }

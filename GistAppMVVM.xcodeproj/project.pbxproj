@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		42CF31A8F43FEF02195A09BE /* Pods_GistAppMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990BABD530B6BA354024E407 /* Pods_GistAppMVVM.framework */; };
+		745D8334255978BA007A3CE3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D8332255978BA007A3CE3 /* DetailViewController.swift */; };
+		745D833925597A00007A3CE3 /* DetailViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D833825597A00007A3CE3 /* DetailViewModelType.swift */; };
+		745D834225597DF8007A3CE3 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D834125597DF8007A3CE3 /* DetailViewModel.swift */; };
+		745D8348255981DE007A3CE3 /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745D8347255981DE007A3CE3 /* DetailViewController.storyboard */; };
 		749E62FB255848F900D4BF19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E62FA255848F900D4BF19 /* AppDelegate.swift */; };
 		749E62FD255848F900D4BF19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E62FC255848F900D4BF19 /* SceneDelegate.swift */; };
 		749E6302255848F900D4BF19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 749E6300255848F900D4BF19 /* Main.storyboard */; };
@@ -21,13 +25,16 @@
 		749E632E2558551200D4BF19 /* TableViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E63252558539700D4BF19 /* TableViewViewModelType.swift */; };
 		74CCD27D25585F12001C3DB6 /* CellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CCD27C25585F12001C3DB6 /* CellViewModelType.swift */; };
 		74CCD2812558605C001C3DB6 /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CCD2802558605C001C3DB6 /* CellViewModel.swift */; };
-		74CCD286255866D3001C3DB6 /* GistNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CCD285255866D3001C3DB6 /* GistNetworkService.swift */; };
 		74CCD28925586712001C3DB6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CCD28825586712001C3DB6 /* NetworkService.swift */; };
 		74CCD28C25586734001C3DB6 /* DecodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CCD28B25586734001C3DB6 /* DecodeService.swift */; };
 		74CCD28F255867B8001C3DB6 /* NetworkErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CCD28E255867B8001C3DB6 /* NetworkErrorService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		745D8332255978BA007A3CE3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		745D833825597A00007A3CE3 /* DetailViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelType.swift; sourceTree = "<group>"; };
+		745D834125597DF8007A3CE3 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		745D8347255981DE007A3CE3 /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		749E62F7255848F900D4BF19 /* GistAppMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GistAppMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		749E62FA255848F900D4BF19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		749E62FC255848F900D4BF19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +50,6 @@
 		749E63252558539700D4BF19 /* TableViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelType.swift; sourceTree = "<group>"; };
 		74CCD27C25585F12001C3DB6 /* CellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModelType.swift; sourceTree = "<group>"; };
 		74CCD2802558605C001C3DB6 /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
-		74CCD285255866D3001C3DB6 /* GistNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistNetworkService.swift; sourceTree = "<group>"; };
 		74CCD28825586712001C3DB6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		74CCD28B25586734001C3DB6 /* DecodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeService.swift; sourceTree = "<group>"; };
 		74CCD28E255867B8001C3DB6 /* NetworkErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorService.swift; sourceTree = "<group>"; };
@@ -70,7 +76,6 @@
 				99C434CA56C96AFDF715B9FD /* Pods-GistAppMVVM.debug.xcconfig */,
 				8FC1A3D3E194F6AE5769D3F9 /* Pods-GistAppMVVM.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -80,6 +85,77 @@
 				990BABD530B6BA354024E407 /* Pods_GistAppMVVM.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		745D833B25597A9A007A3CE3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				745D83562559998B007A3CE3 /* Cell */,
+				745D833C25597AA5007A3CE3 /* Table */,
+				745D833D25597AFA007A3CE3 /* Detailed */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		745D833C25597AA5007A3CE3 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				749E6328255853FC00D4BF19 /* ViewModel */,
+				749E631F25584EB500D4BF19 /* View */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		745D833D25597AFA007A3CE3 /* Detailed */ = {
+			isa = PBXGroup;
+			children = (
+				745D833F25597B82007A3CE3 /* ViewModel */,
+				745D833E25597B29007A3CE3 /* View */,
+			);
+			path = Detailed;
+			sourceTree = "<group>";
+		};
+		745D833E25597B29007A3CE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				745D8332255978BA007A3CE3 /* DetailViewController.swift */,
+				745D8347255981DE007A3CE3 /* DetailViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		745D833F25597B82007A3CE3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				745D834125597DF8007A3CE3 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		745D83562559998B007A3CE3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				745D8358255999A7007A3CE3 /* ViewModel */,
+				745D835725599994007A3CE3 /* View */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		745D835725599994007A3CE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				749E631A25584EB000D4BF19 /* CustomCell.xib */,
+				749E631B25584EB000D4BF19 /* GistListCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		745D8358255999A7007A3CE3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				74CCD2802558605C001C3DB6 /* CellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		749E62EE255848F900D4BF19 = {
@@ -105,10 +181,8 @@
 			children = (
 				749E62FA255848F900D4BF19 /* AppDelegate.swift */,
 				749E62FC255848F900D4BF19 /* SceneDelegate.swift */,
-				749E6300255848F900D4BF19 /* Main.storyboard */,
+				745D833B25597A9A007A3CE3 /* Scenes */,
 				749E631825584AAA00D4BF19 /* Model */,
-				749E631F25584EB500D4BF19 /* View */,
-				749E6328255853FC00D4BF19 /* ViewModel */,
 				749E632A2558540B00D4BF19 /* Protocols */,
 				74CCD28325586670001C3DB6 /* Services */,
 				749E6303255848FB00D4BF19 /* Assets.xcassets */,
@@ -129,8 +203,7 @@
 		749E631F25584EB500D4BF19 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				749E631A25584EB000D4BF19 /* CustomCell.xib */,
-				749E631B25584EB000D4BF19 /* GistListCell.swift */,
+				749E6300255848F900D4BF19 /* Main.storyboard */,
 				749E63102558499200D4BF19 /* TableViewController.swift */,
 			);
 			path = View;
@@ -140,7 +213,6 @@
 			isa = PBXGroup;
 			children = (
 				749E63222558503E00D4BF19 /* GistViewModel.swift */,
-				74CCD2802558605C001C3DB6 /* CellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -150,6 +222,7 @@
 			children = (
 				749E63252558539700D4BF19 /* TableViewViewModelType.swift */,
 				74CCD27C25585F12001C3DB6 /* CellViewModelType.swift */,
+				745D833825597A00007A3CE3 /* DetailViewModelType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -167,7 +240,6 @@
 		74CCD2842558667E001C3DB6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				74CCD285255866D3001C3DB6 /* GistNetworkService.swift */,
 				74CCD28825586712001C3DB6 /* NetworkService.swift */,
 			);
 			path = Network;
@@ -235,6 +307,7 @@
 				749E6307255848FB00D4BF19 /* LaunchScreen.storyboard in Resources */,
 				749E6304255848FB00D4BF19 /* Assets.xcassets in Resources */,
 				749E631C25584EB000D4BF19 /* CustomCell.xib in Resources */,
+				745D8348255981DE007A3CE3 /* DetailViewController.storyboard in Resources */,
 				749E6302255848F900D4BF19 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,18 +361,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				745D8334255978BA007A3CE3 /* DetailViewController.swift in Sources */,
 				74CCD28925586712001C3DB6 /* NetworkService.swift in Sources */,
 				74CCD27D25585F12001C3DB6 /* CellViewModelType.swift in Sources */,
+				745D833925597A00007A3CE3 /* DetailViewModelType.swift in Sources */,
 				749E632E2558551200D4BF19 /* TableViewViewModelType.swift in Sources */,
 				749E631625584A9A00D4BF19 /* Gist.swift in Sources */,
 				749E631D25584EB000D4BF19 /* GistListCell.swift in Sources */,
 				74CCD2812558605C001C3DB6 /* CellViewModel.swift in Sources */,
-				74CCD286255866D3001C3DB6 /* GistNetworkService.swift in Sources */,
 				74CCD28F255867B8001C3DB6 /* NetworkErrorService.swift in Sources */,
 				749E62FB255848F900D4BF19 /* AppDelegate.swift in Sources */,
 				749E63232558503E00D4BF19 /* GistViewModel.swift in Sources */,
 				749E63122558499200D4BF19 /* TableViewController.swift in Sources */,
 				749E62FD255848F900D4BF19 /* SceneDelegate.swift in Sources */,
+				745D834225597DF8007A3CE3 /* DetailViewModel.swift in Sources */,
 				74CCD28C25586734001C3DB6 /* DecodeService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

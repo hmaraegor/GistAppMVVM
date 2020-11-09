@@ -11,7 +11,7 @@ import UIKit
 class CellViewModel: CellViewModelType {
 
     private var gist: Gist
-    private var avatarImg: UIImage?
+    var avatarImg: UIImage?
     
     init(gist: Gist) {
         self.gist = gist
@@ -25,30 +25,27 @@ class CellViewModel: CellViewModelType {
         return gist.owner.login
     }
     
-    //TODO:
     var avatarUrl: String {
-        return gist.owner.avatarUrl ?? ""
-    }
-    
-    func getImage(_ url: String) -> UIImage {
-        guard avatarImg == nil else { return avatarImg! }
-        
-        AlamofireNetworkService.fetchData(url: url) { (data, error) in
-            if data != nil {
-                self.avatarImg = UIImage(data: data!)!
-                
-                print("getImage: ok")
-            } else if error != nil {
-                print("getImage: error")
-                //TODO:
-            }
-//            completionHandler()
-        }
-        return UIImage()
+        return gist.owner.avatarUrl
     }
     
     var date: String {
         getDate(strDate: gist.createdAt)
+    }
+    
+    func setImage(completionHandler: @escaping (UIImage) -> ()) {
+        if let image = avatarImg {
+            completionHandler(image)
+            return
+        }
+        AlamofireNetworkService.fetchData(url: self.avatarUrl) { (data, error) in
+            if let data = data {
+                self.avatarImg = UIImage(data: data)
+                completionHandler( self.avatarImg ?? UIImage() )
+            } else if error != nil {
+                //TODO:
+            }
+        }
     }
     
     private func getDate(strDate: String) -> String {

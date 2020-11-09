@@ -13,4 +13,5 @@ protocol CellViewModelType: AnyObject {
     var author: String { get }
     var avatarUrl: String  { get }
     var date: String  { get }
+    func setImage(completionHandler: @escaping (UIImage) -> ()) -> Void
 }

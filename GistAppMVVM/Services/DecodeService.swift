@@ -9,7 +9,7 @@ import Foundation
 
 class DecodeService {
     
-    func decodeData<T: Codable>(data: Data, completionHandler:
+    func decodeData<T: Decodable>(data: Data, completionHandler:
                                     @escaping (Result<T, NetworkErrorService>) -> ()) {
         
         

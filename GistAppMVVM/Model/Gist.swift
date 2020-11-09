@@ -17,6 +17,7 @@ struct Gist: Codable {
     let description: String?
     
     enum CodingKeys: String, CodingKey {
+        
         case id
         case owner
         case files
@@ -26,15 +27,15 @@ struct Gist: Codable {
     }
     
     init(from decoder: Decoder) throws {
-        let conteiner = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        id = try conteiner.decode(String.self, forKey: .id )
-        owner = try conteiner.decode(Owner.self, forKey: .owner )
-        createdAt = try conteiner.decode(String.self, forKey: .createdAt )
-        updatedAt = try conteiner.decode(String.self, forKey: .updatedAt )
-        description = try conteiner.decode(String.self, forKey: .description )
+        id = try container.decode(String.self, forKey: .id )
+        owner = try container.decode(Owner.self, forKey: .owner )
+        createdAt = try container.decode(String.self, forKey: .createdAt )
+        updatedAt = try container.decode(String.self, forKey: .updatedAt )
+        description = try container.decodeIfPresent(String.self, forKey: .description)
         
-        let filesDictionary = try conteiner.decode([String : File].self, forKey: .files )
+        let filesDictionary = try container.decode([String : File].self, forKey: .files )
         files = filesDictionary.map { $0.value }
     }
 }
@@ -42,7 +43,7 @@ struct Gist: Codable {
 struct Owner: Codable {
     
     let login: String
-    let avatarUrl: String?
+    let avatarUrl: String
     
     enum CodingKeys: String, CodingKey {
         case login
