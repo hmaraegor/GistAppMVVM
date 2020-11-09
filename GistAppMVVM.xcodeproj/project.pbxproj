@@ -7,23 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42CF31A8F43FEF02195A09BE /* Pods_GistAppMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990BABD530B6BA354024E407 /* Pods_GistAppMVVM.framework */; };
 		749E62FB255848F900D4BF19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E62FA255848F900D4BF19 /* AppDelegate.swift */; };
 		749E62FD255848F900D4BF19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E62FC255848F900D4BF19 /* SceneDelegate.swift */; };
-		749E62FF255848F900D4BF19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E62FE255848F900D4BF19 /* ViewController.swift */; };
 		749E6302255848F900D4BF19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 749E6300255848F900D4BF19 /* Main.storyboard */; };
 		749E6304255848FB00D4BF19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749E6303255848FB00D4BF19 /* Assets.xcassets */; };
 		749E6307255848FB00D4BF19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 749E6305255848FB00D4BF19 /* LaunchScreen.storyboard */; };
+		749E63122558499200D4BF19 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E63102558499200D4BF19 /* TableViewController.swift */; };
+		749E631625584A9A00D4BF19 /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E631525584A9A00D4BF19 /* Gist.swift */; };
+		749E631C25584EB000D4BF19 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749E631A25584EB000D4BF19 /* CustomCell.xib */; };
+		749E631D25584EB000D4BF19 /* GistListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E631B25584EB000D4BF19 /* GistListCell.swift */; };
+		749E63232558503E00D4BF19 /* GistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E63222558503E00D4BF19 /* GistViewModel.swift */; };
+		749E632E2558551200D4BF19 /* TableViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749E63252558539700D4BF19 /* TableViewViewModelType.swift */; };
+		74CCD27D25585F12001C3DB6 /* CellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CCD27C25585F12001C3DB6 /* CellViewModelType.swift */; };
+		74CCD2812558605C001C3DB6 /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CCD2802558605C001C3DB6 /* CellViewModel.swift */; };
+		74CCD286255866D3001C3DB6 /* GistNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CCD285255866D3001C3DB6 /* GistNetworkService.swift */; };
+		74CCD28925586712001C3DB6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CCD28825586712001C3DB6 /* NetworkService.swift */; };
+		74CCD28C25586734001C3DB6 /* DecodeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CCD28B25586734001C3DB6 /* DecodeService.swift */; };
+		74CCD28F255867B8001C3DB6 /* NetworkErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CCD28E255867B8001C3DB6 /* NetworkErrorService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		749E62F7255848F900D4BF19 /* GistAppMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GistAppMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		749E62FA255848F900D4BF19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		749E62FC255848F900D4BF19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		749E62FE255848F900D4BF19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		749E6301255848F900D4BF19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		749E6303255848FB00D4BF19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		749E6306255848FB00D4BF19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		749E6308255848FB00D4BF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		749E63102558499200D4BF19 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		749E631525584A9A00D4BF19 /* Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
+		749E631A25584EB000D4BF19 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		749E631B25584EB000D4BF19 /* GistListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GistListCell.swift; sourceTree = "<group>"; };
+		749E63222558503E00D4BF19 /* GistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistViewModel.swift; sourceTree = "<group>"; };
+		749E63252558539700D4BF19 /* TableViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewModelType.swift; sourceTree = "<group>"; };
+		74CCD27C25585F12001C3DB6 /* CellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModelType.swift; sourceTree = "<group>"; };
+		74CCD2802558605C001C3DB6 /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
+		74CCD285255866D3001C3DB6 /* GistNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistNetworkService.swift; sourceTree = "<group>"; };
+		74CCD28825586712001C3DB6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		74CCD28B25586734001C3DB6 /* DecodeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeService.swift; sourceTree = "<group>"; };
+		74CCD28E255867B8001C3DB6 /* NetworkErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorService.swift; sourceTree = "<group>"; };
+		8FC1A3D3E194F6AE5769D3F9 /* Pods-GistAppMVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistAppMVVM.release.xcconfig"; path = "Target Support Files/Pods-GistAppMVVM/Pods-GistAppMVVM.release.xcconfig"; sourceTree = "<group>"; };
+		990BABD530B6BA354024E407 /* Pods_GistAppMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GistAppMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99C434CA56C96AFDF715B9FD /* Pods-GistAppMVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GistAppMVVM.debug.xcconfig"; path = "Target Support Files/Pods-GistAppMVVM/Pods-GistAppMVVM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +57,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42CF31A8F43FEF02195A09BE /* Pods_GistAppMVVM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F708B18446B60C3CAD3C139 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				99C434CA56C96AFDF715B9FD /* Pods-GistAppMVVM.debug.xcconfig */,
+				8FC1A3D3E194F6AE5769D3F9 /* Pods-GistAppMVVM.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		673AB447C19569F6306DBE46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				990BABD530B6BA354024E407 /* Pods_GistAppMVVM.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		749E62EE255848F900D4BF19 = {
 			isa = PBXGroup;
 			children = (
 				749E62F9255848F900D4BF19 /* GistAppMVVM */,
 				749E62F8255848F900D4BF19 /* Products */,
+				0F708B18446B60C3CAD3C139 /* Pods */,
+				673AB447C19569F6306DBE46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +105,72 @@
 			children = (
 				749E62FA255848F900D4BF19 /* AppDelegate.swift */,
 				749E62FC255848F900D4BF19 /* SceneDelegate.swift */,
-				749E62FE255848F900D4BF19 /* ViewController.swift */,
 				749E6300255848F900D4BF19 /* Main.storyboard */,
+				749E631825584AAA00D4BF19 /* Model */,
+				749E631F25584EB500D4BF19 /* View */,
+				749E6328255853FC00D4BF19 /* ViewModel */,
+				749E632A2558540B00D4BF19 /* Protocols */,
+				74CCD28325586670001C3DB6 /* Services */,
 				749E6303255848FB00D4BF19 /* Assets.xcassets */,
 				749E6305255848FB00D4BF19 /* LaunchScreen.storyboard */,
 				749E6308255848FB00D4BF19 /* Info.plist */,
 			);
 			path = GistAppMVVM;
+			sourceTree = "<group>";
+		};
+		749E631825584AAA00D4BF19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				749E631525584A9A00D4BF19 /* Gist.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		749E631F25584EB500D4BF19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				749E631A25584EB000D4BF19 /* CustomCell.xib */,
+				749E631B25584EB000D4BF19 /* GistListCell.swift */,
+				749E63102558499200D4BF19 /* TableViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		749E6328255853FC00D4BF19 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				749E63222558503E00D4BF19 /* GistViewModel.swift */,
+				74CCD2802558605C001C3DB6 /* CellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		749E632A2558540B00D4BF19 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				749E63252558539700D4BF19 /* TableViewViewModelType.swift */,
+				74CCD27C25585F12001C3DB6 /* CellViewModelType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		74CCD28325586670001C3DB6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				74CCD2842558667E001C3DB6 /* Network */,
+				74CCD28B25586734001C3DB6 /* DecodeService.swift */,
+				74CCD28E255867B8001C3DB6 /* NetworkErrorService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		74CCD2842558667E001C3DB6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				74CCD285255866D3001C3DB6 /* GistNetworkService.swift */,
+				74CCD28825586712001C3DB6 /* NetworkService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +180,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 749E630B255848FB00D4BF19 /* Build configuration list for PBXNativeTarget "GistAppMVVM" */;
 			buildPhases = (
+				B9CF219CB594B9241C994A2D /* [CP] Check Pods Manifest.lock */,
 				749E62F3255848F900D4BF19 /* Sources */,
 				749E62F4255848F900D4BF19 /* Frameworks */,
 				749E62F5255848F900D4BF19 /* Resources */,
+				DCE5AB214A7ECC9158232573 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,20 +234,73 @@
 			files = (
 				749E6307255848FB00D4BF19 /* LaunchScreen.storyboard in Resources */,
 				749E6304255848FB00D4BF19 /* Assets.xcassets in Resources */,
+				749E631C25584EB000D4BF19 /* CustomCell.xib in Resources */,
 				749E6302255848F900D4BF19 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B9CF219CB594B9241C994A2D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GistAppMVVM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCE5AB214A7ECC9158232573 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GistAppMVVM/Pods-GistAppMVVM-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GistAppMVVM/Pods-GistAppMVVM-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GistAppMVVM/Pods-GistAppMVVM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		749E62F3255848F900D4BF19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				749E62FF255848F900D4BF19 /* ViewController.swift in Sources */,
+				74CCD28925586712001C3DB6 /* NetworkService.swift in Sources */,
+				74CCD27D25585F12001C3DB6 /* CellViewModelType.swift in Sources */,
+				749E632E2558551200D4BF19 /* TableViewViewModelType.swift in Sources */,
+				749E631625584A9A00D4BF19 /* Gist.swift in Sources */,
+				749E631D25584EB000D4BF19 /* GistListCell.swift in Sources */,
+				74CCD2812558605C001C3DB6 /* CellViewModel.swift in Sources */,
+				74CCD286255866D3001C3DB6 /* GistNetworkService.swift in Sources */,
+				74CCD28F255867B8001C3DB6 /* NetworkErrorService.swift in Sources */,
 				749E62FB255848F900D4BF19 /* AppDelegate.swift in Sources */,
+				749E63232558503E00D4BF19 /* GistViewModel.swift in Sources */,
+				749E63122558499200D4BF19 /* TableViewController.swift in Sources */,
 				749E62FD255848F900D4BF19 /* SceneDelegate.swift in Sources */,
+				74CCD28C25586734001C3DB6 /* DecodeService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +444,7 @@
 		};
 		749E630C255848FB00D4BF19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99C434CA56C96AFDF715B9FD /* Pods-GistAppMVVM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +464,7 @@
 		};
 		749E630D255848FB00D4BF19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FC1A3D3E194F6AE5769D3F9 /* Pods-GistAppMVVM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
