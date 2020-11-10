@@ -6,12 +6,10 @@
 //
 
 import Foundation
-import UIKit
 
 class CellViewModel: CellViewModelType {
 
     private var gist: Gist
-    var avatarImg: UIImage?
     
     init(gist: Gist) {
         self.gist = gist
@@ -30,33 +28,17 @@ class CellViewModel: CellViewModelType {
     }
     
     var date: String {
-        getDate(strDate: gist.createdAt)
+        return DateService.getDate(from: gist.createdAt)
     }
     
-    func setImage(completionHandler: @escaping (UIImage) -> ()) {
-        if let image = avatarImg {
-            completionHandler(image)
-            return
-        }
+    func setImage(completionHandler: @escaping (Data) -> ()) {
         AlamofireNetworkService.fetchData(url: self.avatarUrl) { (data, error) in
             if let data = data {
-                self.avatarImg = UIImage(data: data)
-                completionHandler( self.avatarImg ?? UIImage() )
-            } else if error != nil {
-                //TODO:
+                completionHandler( data )
+            } else if let error = error {
+                ErrorAlertService.showAlert(error: error)
             }
         }
-    }
-    
-    private func getDate(strDate: String) -> String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let myDate = formatter.date(from: strDate) //as NSDate?
-        formatter.dateFormat = "HH:mm d MMM y"
-        let newDate = formatter.string(from: myDate!)
-        
-        return newDate
     }
     
     private func getFileNames(from content: Gist) -> [String] {

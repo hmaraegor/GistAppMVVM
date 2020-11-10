@@ -10,10 +10,16 @@ import Foundation
 protocol TableViewViewModelType {
     var numberOfRows: Int { get }
     func cellViewModel(forIndexPath indexPath: IndexPath) -> CellViewModelType?
-    
-    func getGistsViaAFDecodable(completionHandler: @escaping () -> ()) -> Void
-    func getGistsViaAlamofire(completionHandler: @escaping () -> ()) -> Void
-    
+    var cellNib: String { get }
+    var cellIdentifier: String { get }
+    var detailVCStoryboard: String { get }
+    var detailVCControllerId: String { get }
+    func getGists(completionHandler: @escaping () -> ()) -> Void
     func viewModelForSelectedRow() -> DetailViewModelType?
     func selectRow(atIndexPath indexPath: IndexPath) 
+}
+
+extension TableViewViewModelType {
+    var detailVCStoryboard: String { return "" }
+    var detailVCControllerId: String { return "" }
 }

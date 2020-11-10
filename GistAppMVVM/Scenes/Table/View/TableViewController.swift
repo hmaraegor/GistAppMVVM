@@ -9,67 +9,38 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    private var gistViewModel: TableViewViewModelType!
-    
+    var tableViewModel: TableViewViewModelType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gistViewModel = GistViewModel()
-        
-        let nib = UINib(nibName: "CustomCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "Cell")
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        //fetchGistList()
+        let nib = UINib(nibName: tableViewModel.cellNib, bundle: nil)
+        let identifier = tableViewModel.cellIdentifier
+        tableView.register(nib, forCellReuseIdentifier: identifier)
         fetchAndDecodable()
     }
     
     func fetchAndDecodable() {
-        gistViewModel.getGistsViaAFDecodable {
+        tableViewModel.getGists {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
-    
-    func fetchGistList() {
-        gistViewModel.getGistsViaAlamofire {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
-    
-    //MARK: Present methods
-    
-    //TODO:
-//    private func presentGistController(with gist: Gist) {
-//
-//        let storyboard: UIStoryboard = UIStoryboard(name: "Gist", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "GistVC")
-//        (vc as? GistViewController)?.gist = gist
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-
-    // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gistViewModel?.numberOfRows ?? 0
+        return tableViewModel?.numberOfRows ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let gistListcell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? GistListCell,
-              let gistViewModel = gistViewModel else {
+        guard let tableViewModel = tableViewModel,
+              let gistListcell = tableView.dequeueReusableCell(withIdentifier: tableViewModel.cellIdentifier, for: indexPath) as? GistListCell else {
             return UITableViewCell()
         }
         
-        let cellViewModel = gistViewModel.cellViewModel(forIndexPath: indexPath)
-        
+        let cellViewModel = tableViewModel.cellViewModel(forIndexPath: indexPath)
         gistListcell.cellViewModel = cellViewModel
-        
         return gistListcell
     }
    
@@ -78,18 +49,15 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO:
-        guard let gistViewModel = gistViewModel else { return }
-        gistViewModel.selectRow(atIndexPath: indexPath)
-        
+        guard let tableViewModel = tableViewModel else { return }
+        tableViewModel.selectRow(atIndexPath: indexPath)
         presentGistController()
     }
     
     private func presentGistController() {
-        
-        let storyboard: UIStoryboard = UIStoryboard(name: "DetailViewController", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "DetailVC")
-        (vc as? DetailViewController)?.viewModel = gistViewModel.viewModelForSelectedRow()
+        let storyboard: UIStoryboard = UIStoryboard(name: tableViewModel.detailVCStoryboard, bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: tableViewModel.detailVCControllerId) as? DetailViewController else { return }
+        vc.viewModel = tableViewModel.viewModelForSelectedRow()
         navigationController?.pushViewController(vc, animated: true)
     }
     

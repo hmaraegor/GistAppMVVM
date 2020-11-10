@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class DetailViewModel: DetailViewModelType {
     
@@ -16,21 +17,30 @@ class DetailViewModel: DetailViewModelType {
         return gist.files
     }
     
+    var firstFileName: String {
+        guard let file = self.files.first else { return "" }
+        return file.filename
+    }
+    
+    var author: String {
+        return gist.owner.login
+    }
+    
+    var changed: String {
+        DateService.getDate(from: gist.updatedAt ?? gist.createdAt)
+    }
+    
     init(gist: Gist) {
         self.gist = gist
     }
     
-    func getFileTextViaAlamofire(completionHandler: @escaping (String) -> ()) {
+    func getFileText(completionHandler: @escaping (String) -> ()) {
         AlamofireNetworkService.fetchData(url: files.first!.rawUrl) { (data, error) in
-            if data != nil {
-                print("text ok")
-                guard let data = data else { return }
-                let str: String = String(decoding: data, as: UTF8.self) as! String
-                //self.fileText = text!
-                completionHandler(str)
-            } else if error != nil {
-                print("text: error")
-                //TODO:
+            if let data = data {
+                let text: String = String(decoding: data, as: UTF8.self) 
+                completionHandler(text)
+            } else if let error = error {
+                ErrorAlertService.showAlert(error: error)
             }
         }
     }

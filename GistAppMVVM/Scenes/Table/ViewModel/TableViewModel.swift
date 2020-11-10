@@ -18,19 +18,19 @@ class TableViewModel: TableViewViewModelType {
     }
     
     var cellNib: String {
-        return CellViewModel.nib
+        return Constants.Cell.cellNib
     }
     
     var cellIdentifier: String {
-        return CellViewModel.identifier
+        return Constants.Cell.cellId
     }
     
     var detailVCStoryboard: String {
-        return DetailViewModel.storyboardName
+        return Constants.DetailVC.storyboard
     }
     
     var detailVCControllerId: String {
-        return DetailViewModel.controllerId
+        return Constants.DetailVC.controllerId
     }
     
     func cellViewModel(forIndexPath indexPath: IndexPath) -> CellViewModelType? {
@@ -47,15 +47,12 @@ class TableViewModel: TableViewViewModelType {
         self.selectedIndexPath = indexPath
     }
 
-    func getGistsViaAFDecodable(completionHandler: @escaping () -> ()) {
-        AlamofireNetworkService.fetchAndDecodable(url: Constants.gitHubGistsUrl) { (gists, error) in
-            if gists != nil {
-                //print(gists!)
-                self.gistArray = gists!
-                print("getGistsDecodable: ok")
-            } else if error != nil {
-                print("getGistsDecodable: error")
-                //TODO:
+    func getGists(completionHandler: @escaping () -> ()) {
+        AlamofireNetworkService.fetchAndDecode(url: Constants.gitHubGistsUrl) { (gists, error: NetworkErrorService?) in
+            if let gists = gists {
+                self.gistArray = gists
+            } else if let error = error {
+                ErrorAlertService.showAlert(error: error)
             }
             completionHandler()
         }

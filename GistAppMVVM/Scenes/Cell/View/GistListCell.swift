@@ -18,29 +18,15 @@ class GistListCell: UITableViewCell {
     weak var cellViewModel: CellViewModelType? {
         willSet(viewModel) {
             guard let viewModel = viewModel  else { return }
-            self.files.text = "files: " + viewModel.files
-            self.author.text = "author: " + viewModel.author
-            self.date.text = "date: " + viewModel.date
+            self.files.text = LocStr.files + viewModel.files
+            self.author.text = LocStr.author + viewModel.author
+            self.date.text = LocStr.date + viewModel.date
             
             avatarImage.layer.cornerRadius = avatarImage.frame.size.height / 5
-            viewModel.setImage() { (image) in
+            viewModel.setImage() { (data) in
+                let image = (UIImage(data: data) ?? UIImage())
                 self.avatarImage.image = image
             }
         }
-    }
-    
-    private func getDate(strDate: String) -> String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let myDate = formatter.date(from: strDate) //as NSDate?
-        formatter.dateFormat = "HH:mm d MMM y"
-        let newDate = formatter.string(from: myDate!)
-        
-        return newDate
-    }
-    
-    private func getFileNames(from content: Gist) -> [String] {
-        return content.files.map { $0.filename }
     }
 }

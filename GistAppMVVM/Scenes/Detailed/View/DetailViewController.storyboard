@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s5u-Ll-fiY">
-                                <rect key="frame" x="5" y="144" width="414" height="718"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s5u-Ll-fiY">
+                                <rect key="frame" x="5" y="112" width="404" height="745"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -51,20 +51,38 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWm-7z-hmc">
+                                <rect key="frame" x="10" y="54" width="54.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last change: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZi-Jf-lYC">
+                                <rect key="frame" x="10" y="82" width="92" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZYw-bL-Co7"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.56525618654822329" green="0.56525618654822329" blue="0.56525618654822329" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="kWm-7z-hmc" firstAttribute="top" secondItem="ZYw-bL-Co7" secondAttribute="top" constant="10" id="7FQ-UL-WV1"/>
                             <constraint firstItem="c9B-pu-Qje" firstAttribute="centerX" secondItem="glh-Tr-nzR" secondAttribute="centerX" id="9yJ-Sj-vMV"/>
-                            <constraint firstItem="s5u-Ll-fiY" firstAttribute="top" secondItem="ZYw-bL-Co7" secondAttribute="top" constant="100" id="D9w-6B-0lW"/>
+                            <constraint firstItem="s5u-Ll-fiY" firstAttribute="top" secondItem="QZi-Jf-lYC" secondAttribute="bottom" constant="12" id="D9w-6B-0lW"/>
                             <constraint firstItem="c9B-pu-Qje" firstAttribute="centerY" secondItem="glh-Tr-nzR" secondAttribute="centerY" id="NjT-J1-WxE"/>
+                            <constraint firstItem="QZi-Jf-lYC" firstAttribute="top" secondItem="kWm-7z-hmc" secondAttribute="bottom" constant="10" id="Nyg-97-seA"/>
                             <constraint firstItem="s5u-Ll-fiY" firstAttribute="leading" secondItem="ZYw-bL-Co7" secondAttribute="leading" constant="5" id="Psg-Cw-BLK"/>
-                            <constraint firstItem="s5u-Ll-fiY" firstAttribute="bottom" secondItem="ZYw-bL-Co7" secondAttribute="bottom" id="Vst-ER-ZhV"/>
-                            <constraint firstItem="s5u-Ll-fiY" firstAttribute="trailing" secondItem="ZYw-bL-Co7" secondAttribute="trailing" constant="5" id="cAZ-mQ-hhV"/>
+                            <constraint firstItem="s5u-Ll-fiY" firstAttribute="bottom" secondItem="ZYw-bL-Co7" secondAttribute="bottom" constant="-5" id="Vst-ER-ZhV"/>
+                            <constraint firstItem="s5u-Ll-fiY" firstAttribute="trailing" secondItem="ZYw-bL-Co7" secondAttribute="trailing" constant="-5" id="cAZ-mQ-hhV"/>
+                            <constraint firstItem="kWm-7z-hmc" firstAttribute="leading" secondItem="ZYw-bL-Co7" secondAttribute="leading" constant="10" id="h9C-5L-baD"/>
+                            <constraint firstItem="QZi-Jf-lYC" firstAttribute="leading" secondItem="ZYw-bL-Co7" secondAttribute="leading" constant="10" id="vCr-QZ-j3c"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="nak-Fj-MTs" id="xEy-au-tgC"/>
+                        <outlet property="authorLabel" destination="kWm-7z-hmc" id="9Ec-Zd-fQg"/>
+                        <outlet property="dataLabel" destination="QZi-Jf-lYC" id="36R-rS-O6U"/>
                         <outlet property="fileTextView" destination="s5u-Ll-fiY" id="dpk-01-2Qv"/>
                         <outlet property="indicatorView" destination="c9B-pu-Qje" id="aDj-cu-W6k"/>
                     </connections>

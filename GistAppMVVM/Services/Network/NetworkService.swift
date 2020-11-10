@@ -11,64 +11,41 @@ import Alamofire
 class AlamofireNetworkService {
     
     static func fetchData(url: String,
-                           completionHandler: @escaping (Data?, Error?) -> () ) {
+                           completionHandler: @escaping (Data?, NetworkErrorService?) -> () ) {
         
         AF.request(url).responseData { (responseData) in
             switch responseData.result {
             case .success(let data):
-                print("responseData success")
                 completionHandler(data, nil)
             case .failure(let error):
-                completionHandler(nil, error)
-                print("responseData error")
+                completionHandler(nil, .noData)
             }
             
         }
         
     }
     
-    static func fetchAndDecodable(url: String,
-                                   completionHandler: @escaping ([Gist]?, Error?) -> () ) {
+    static func fetchAndDecode(url: String,
+                                   completionHandler: @escaping ([Gist]?, NetworkErrorService?) -> () ) {
              guard let newUrl = URL(string: url) else {
-                print("fetchAndDecodable url error")
+                completionHandler(nil, .badURL)
                 return }
         
         AF.request(newUrl).validate().responseDecodable(of: [Gist].self) { (response) in
+            guard let statusCode = response.response?.statusCode,
+                  (200...299).contains(statusCode) else {
+                completionHandler(nil, .badResponse)
+                print(response.response?.statusCode)
+                return
+            }
             
             guard let gists = response.value else {
-                print("fetchAndDecodable response.value error")
-                print(response.error)
-                fetchRequest(url: url, completionHandler: completionHandler )
+                completionHandler(nil, .jsonDecoding)
                 return
             }
-            
             completionHandler(gists, nil)
-            print("ok")
         }
 
-    }
-    
-    static func fetchRequest<T: Decodable>(url: String,
-                              completionHandler: @escaping (T?, Error?) -> () ) {
-        guard let url = URL(string: url) else { return }
-        
-        
-        AF.request(url).validate().responseData { (data) in
-            guard let data = data.value else {
-                print("wrong data")
-                return
-            }
-            DecodeService().decodeData(data: data) { (result: Result<T, NetworkErrorService>) -> () in
-                switch result {
-                case .success(let obj):
-                    completionHandler(obj, nil)
-                    print("decoding ok")
-                case .failure(let error):
-                    print("error decoding")
-                    completionHandler(nil, error)
-                }
-            }
-        }
     }
     
 }

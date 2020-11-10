@@ -7,8 +7,11 @@
 
 import Foundation
 
-protocol DetailViewModelType {
+protocol DetailViewModelType: AnyObject {
     var files: [File] { get }
     var gist: Gist { get }
-    func getFileTextViaAlamofire (completionHandler: @escaping (String) -> ()) -> Void
+    var author: String { get }
+    var changed: String { get }
+    var firstFileName: String { get }
+    func getFileText(completionHandler: @escaping (String) -> ()) -> Void
 }
