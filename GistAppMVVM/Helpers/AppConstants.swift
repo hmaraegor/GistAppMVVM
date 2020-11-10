@@ -9,6 +9,10 @@ import Foundation
 
 struct Constants {
     
+    
+    struct Table {
+        static let gists = "Public Gists"
+    }
     struct Cell {
         static let cellId = "Cell"
         static let cellNib = "CustomCell"

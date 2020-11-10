@@ -98,7 +98,7 @@
 			children = (
 				745D83562559998B007A3CE3 /* Cell */,
 				745D833C25597AA5007A3CE3 /* Table */,
-				745D833D25597AFA007A3CE3 /* Detailed */,
+				745D833D25597AFA007A3CE3 /* DetailedInfo */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -106,19 +106,21 @@
 		745D833C25597AA5007A3CE3 /* Table */ = {
 			isa = PBXGroup;
 			children = (
+				745D8377255A8B79007A3CE3 /* Protocols */,
 				749E6328255853FC00D4BF19 /* ViewModel */,
 				749E631F25584EB500D4BF19 /* View */,
 			);
 			path = Table;
 			sourceTree = "<group>";
 		};
-		745D833D25597AFA007A3CE3 /* Detailed */ = {
+		745D833D25597AFA007A3CE3 /* DetailedInfo */ = {
 			isa = PBXGroup;
 			children = (
+				745D8378255A8B7D007A3CE3 /* Protocols */,
 				745D833F25597B82007A3CE3 /* ViewModel */,
 				745D833E25597B29007A3CE3 /* View */,
 			);
-			path = Detailed;
+			path = DetailedInfo;
 			sourceTree = "<group>";
 		};
 		745D833E25597B29007A3CE3 /* View */ = {
@@ -141,6 +143,7 @@
 		745D83562559998B007A3CE3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				745D8376255A8B62007A3CE3 /* Protocols */,
 				745D8358255999A7007A3CE3 /* ViewModel */,
 				745D835725599994007A3CE3 /* View */,
 			);
@@ -173,6 +176,30 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		745D8376255A8B62007A3CE3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				74CCD27C25585F12001C3DB6 /* CellViewModelType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		745D8377255A8B79007A3CE3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				749E63252558539700D4BF19 /* TableViewViewModelType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		745D8378255A8B7D007A3CE3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				745D833825597A00007A3CE3 /* DetailViewModelType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		749E62EE255848F900D4BF19 = {
 			isa = PBXGroup;
 			children = (
@@ -198,7 +225,6 @@
 				749E62FC255848F900D4BF19 /* SceneDelegate.swift */,
 				745D833B25597A9A007A3CE3 /* Scenes */,
 				749E631825584AAA00D4BF19 /* Model */,
-				749E632A2558540B00D4BF19 /* Protocols */,
 				74CCD28325586670001C3DB6 /* Services */,
 				745D83672559E178007A3CE3 /* Helpers */,
 				749E6303255848FB00D4BF19 /* Assets.xcassets */,
@@ -231,16 +257,6 @@
 				749E63222558503E00D4BF19 /* TableViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		749E632A2558540B00D4BF19 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				749E63252558539700D4BF19 /* TableViewViewModelType.swift */,
-				74CCD27C25585F12001C3DB6 /* CellViewModelType.swift */,
-				745D833825597A00007A3CE3 /* DetailViewModelType.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		74CCD28325586670001C3DB6 /* Services */ = {

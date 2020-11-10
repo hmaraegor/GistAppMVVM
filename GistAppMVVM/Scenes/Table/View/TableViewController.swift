@@ -14,6 +14,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = Constants.Table.gists
         let nib = UINib(nibName: tableViewModel.cellNib, bundle: nil)
         let identifier = tableViewModel.cellIdentifier
         tableView.register(nib, forCellReuseIdentifier: identifier)
