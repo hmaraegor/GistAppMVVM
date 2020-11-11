@@ -13,6 +13,10 @@ class DetailViewModel: DetailViewModelType {
     var gist: Gist
     var fileText: String?
     
+    init(gist: Gist) {
+        self.gist = gist
+    }
+
     var files: [File] {
         return gist.files
     }
@@ -30,15 +34,11 @@ class DetailViewModel: DetailViewModelType {
         DateService.getDate(from: gist.updatedAt ?? gist.createdAt)
     }
     
-    init(gist: Gist) {
-        self.gist = gist
-    }
-    
-    func getFileText(completionHandler: @escaping (String) -> ()) {
+    func getFileText(completionHandler: @escaping (Data) -> ()) {
         AlamofireNetworkService.fetchData(url: files.first!.rawUrl) { (data, error) in
             if let data = data {
-                let text: String = String(decoding: data, as: UTF8.self) 
-                completionHandler(text)
+                //let text: String = String(decoding: data, as: UTF8.self)
+                completionHandler(data)
             } else if let error = error {
                 ErrorAlertService.showAlert(error: error)
             }

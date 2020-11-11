@@ -46,9 +46,9 @@ class DetailViewController: UIViewController {
     }
 
     func getFile() { 
-        viewModel?.getFileText { (text) in
-            print("TEXT")
+        viewModel?.getFileText { (data) in
             DispatchQueue.main.async {
+                let text: String = String(decoding: data, as: UTF8.self)
                 self.fileTextView.text = text
                 self.stopActivityIndicator()
             }

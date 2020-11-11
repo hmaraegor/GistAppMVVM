@@ -13,5 +13,5 @@ protocol DetailViewModelType: AnyObject {
     var author: String { get }
     var changed: String { get }
     var firstFileName: String { get }
-    func getFileText(completionHandler: @escaping (String) -> ()) -> Void
+    func getFileText(completionHandler: @escaping (Data) -> ()) -> Void
 }

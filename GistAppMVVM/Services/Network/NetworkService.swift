@@ -17,7 +17,7 @@ class AlamofireNetworkService {
             switch responseData.result {
             case .success(let data):
                 completionHandler(data, nil)
-            case .failure(let error):
+            case .failure:
                 completionHandler(nil, .noData)
             }
             
@@ -35,7 +35,6 @@ class AlamofireNetworkService {
             guard let statusCode = response.response?.statusCode,
                   (200...299).contains(statusCode) else {
                 completionHandler(nil, .badResponse)
-                print(response.response?.statusCode)
                 return
             }
             
